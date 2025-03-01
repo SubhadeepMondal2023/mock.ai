@@ -10,7 +10,7 @@ import {
 import { Button } from "../../../@/components/components/ui/button";
 import { Input } from "../../../@/components/components/ui/input";
 import { Textarea } from "../../../@/components/components/ui/textarea";
-import { sendMessageToChat } from '../../../utils/GeminiAIModel'; // Ensure correct import
+import { sendMessageToChat } from '../../../utils/GeminiAIModel';
 import { LoaderCircle } from "lucide-react";
 import { db } from "../../../utils/db";
 import { MockInterview } from "../../../utils/schema"
@@ -118,7 +118,7 @@ function AddNewInterview() {
       {interviewQuestions && (
         <div className="mt-4 p-4 border rounded-md">
           <h3>Interview Questions:</h3>
-          <pre>{interviewQuestions}</pre> {/* Display the questions */}
+          <pre>{interviewQuestions}</pre>
         </div>
       )}
     </div>

@@ -20,7 +20,7 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, setActiv
           {mockInterviewQuestion.map((question, index) => (
             <h2
               key={index}
-              onClick={() => setActiveQuestionIndex(index)} // ✅ Update active question
+              onClick={() => setActiveQuestionIndex(index)} 
               className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer transition-all duration-300 
               ${
                 activeQuestionIndex === index
