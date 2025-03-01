@@ -3,10 +3,12 @@ import dynamic from "next/dynamic";
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Button } from '../../../../../../@/components/components/ui/button';
+import { Toaster } from "../../../../../../@/components/components/ui/sonner"
 import { Mic } from 'lucide-react';
 
 const Webcam = dynamic(() => import("react-webcam"), { ssr: false });
 import useSpeechToText from "react-hook-speech-to-text";
+import { toast } from "sonner";
 
 
 function RecordAnswerSection() {
@@ -35,6 +37,19 @@ function RecordAnswerSection() {
     }
   }, [results]);
   
+  const SaveUserAnswer=()=>{
+    if(isRecording){
+      stopSpeechToText();
+      if(userAnswer?.length<10){
+        toast("Error! Can't save your answer. Please record again.")
+        
+        return ;
+      }
+    }
+    else{
+      startSpeechToText();
+    }
+  }
 
   if (!isClient) return null;
 
@@ -49,10 +64,9 @@ function RecordAnswerSection() {
         }}/>
       </div>
       <Button variant='outline' className='my-10'
-      onClick={isRecording?stopSpeechToText:startSpeechToText}
-      >
+      onClick={SaveUserAnswer}>
         {isRecording?
-        <h2 className="text-red-600"><Mic/>'Recording...'</h2>
+        <h2 className="text-red-600"><Mic/>Recording</h2>
         :
         'Record Answer'}</Button>
         <Button onClick={()=>console.log(userAnswer)}>Show user ans</Button>
