@@ -5,23 +5,24 @@ import { db } from "../../../../../utils/db";
 import { eq } from "drizzle-orm";
 import QuestionsSection from "../start/_components/QuestionsSection";
 import RecordAnswerSection from "../start/_components/RecordAnswerSection";
+import { Button } from "../../../../../@/components/components/ui/button";
+import { useRouter } from "next/navigation"; 
 
 function StartInterview({ params }) {
   const [interviewId, setInterviewId] = useState(null);
   const [interviewDetails, setInterviewDetails] = useState(null);
   const [mockInterviewQuestion, setMockInterviewQuestion] = useState([]);
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
+  const router = useRouter();
 
-  // ✅ Unwrap params inside useEffect
   useEffect(() => {
     async function unwrapParams() {
-      const unwrappedParams = await params; // Await the promise
+      const unwrappedParams = await params;
       setInterviewId(unwrappedParams?.interviewId || null);
     }
     unwrapParams();
   }, [params]);
 
-  // ✅ Fetch interview details once interviewId is available
   useEffect(() => {
     if (!interviewId) return;
 
@@ -36,8 +37,6 @@ function StartInterview({ params }) {
           const jsonMockResponse = JSON.parse(result[0].jsonMockResp);
           setMockInterviewQuestion(jsonMockResponse);
           setInterviewDetails(result[0]);
-        } else {
-          console.error("No interview found for given ID.");
         }
       } catch (error) {
         console.error("Error fetching interview details:", error);
@@ -50,19 +49,39 @@ function StartInterview({ params }) {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Questions */}
         <QuestionsSection
           mockInterviewQuestion={mockInterviewQuestion}
           activeQuestionIndex={activeQuestionIndex}
           setActiveQuestionIndex={setActiveQuestionIndex}
         />
 
-        {/* Video/Audio Rec */}
         <RecordAnswerSection 
-        mockInterviewQuestion={mockInterviewQuestion}
-        activeQuestionIndex={activeQuestionIndex}
-        interviewDetails={interviewDetails}
+          mockInterviewQuestion={mockInterviewQuestion}
+          activeQuestionIndex={activeQuestionIndex}
+          interviewDetails={interviewDetails}
         />
+      </div>
+      <div className="flex justify-end gap-5"> 
+        {activeQuestionIndex > 0 && (
+          <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}>
+            Previous Question
+          </Button>
+        )}
+        {activeQuestionIndex !== mockInterviewQuestion?.length - 1 && (
+          <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}>
+            Next Question
+          </Button>
+        )}
+        {activeQuestionIndex === mockInterviewQuestion?.length - 1 && (
+          <Button
+            onClick={() => {
+              if (!interviewDetails?.mockId) return;
+              router.push(`/dashboard/interview/${interviewDetails.mockId}/feedback`);
+            }}
+          >
+            End Interview
+          </Button>
+        )}
       </div>
     </div>
   );
