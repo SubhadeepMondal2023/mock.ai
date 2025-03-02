@@ -89,17 +89,17 @@ function AddNewInterview() {
                 <h2>Add details about your job position/role, job description and years of experience</h2>
                 <div className="mt-5 my-3">
                   <label>Job Role/Position</label>
-                  <Input placeholder="Ex. Full-Stack Developer" required onChange={(event) => setJobPosition(event.target.value)} />
+                  <Input className='my-2' placeholder="Ex. Full-Stack Developer" required onChange={(event) => setJobPosition(event.target.value)} />
                 </div>
 
                 <div className="my-3">
                   <label>Job Description/Tech Stack (In Short)</label>
-                  <Textarea placeholder="Ex. React, Angular, Springboot, etc." required onChange={(event) => setJobDesc(event.target.value)} />
+                  <Textarea className='my-2' placeholder="Ex. React, Angular, Springboot, etc." required onChange={(event) => setJobDesc(event.target.value)} />
                 </div>
 
                 <div className="my-3">
                   <label>Years of experience</label>
-                  <Input placeholder="Ex.5" type="number" max="50" required onChange={(event) => setJobExperience(event.target.value)} />
+                  <Input className='my-2' placeholder="Ex.5" type="number" max="50" required onChange={(event) => setJobExperience(event.target.value)} />
                 </div>
               </div>
               <div className="flex gap-5 justify-end">
