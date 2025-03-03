@@ -48,7 +48,7 @@ Then open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) in 
 
 Go to **Dashboard** → Click **"+ Add New"** to start a new mock interview session.
 
-![Dashboard](https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/mock.ai/main/public/dashboard.png)
+![Dashboard](https://github.com/SubhadeepMondal2023/mock.ai/blob/main/public/dashboard.png)
 
 ### **2. Enable Camera & Microphone**
 
