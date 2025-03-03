@@ -2,6 +2,9 @@
 
 Welcome to **mock.ai**, your AI-powered mock interview platform! 💡 Get real-time AI-generated mock interviews to improve your confidence and performance. 🎯
 
+## Live Demo
+
+Check out the live version of the project here: [Live@](https://mock-ai.onrender.com/dashboard)
 ---
 
 ## 📌 What is mock.ai?
