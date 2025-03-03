@@ -8,8 +8,9 @@ const Footer = () => {
   const githubProfile = process.env.NEXT_PUBLIC_GITHUB_PROFILE;
 
   return (
-    <footer className="bg-gray-900 text-white py-4 flex flex-col items-center gap-2">
+    <footer className="bg-blue-900 text-white py-4 flex items-center justify-between px-6">
       <p className="text-sm">© 2025 mock.ai by 'Subhadeep Mondal'. All rights reserved.</p>
+
       <div className="flex gap-4">
         <a href={linkedinProfile} target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-2xl hover:text-blue-500" />
