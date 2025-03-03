@@ -63,7 +63,6 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
      try {
           setIsLoading(true);
           const result = await sendMessageToChat(feedbackPrompt);
-          console.log("Raw API Response:", result);
           try {
               const jsonFeedbackResp = JSON.parse(result);
 
@@ -100,11 +99,8 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
                     userEmail: user?.primaryEmailAddress?.emailAddress,
                     createdAt: formattedDate,
                 };
-            
-                console.log("Insert values:", insertValues);
-            
+                        
                 const resp = await db.insert(UserAnswer).values(insertValues);
-                console.log("Database response:", resp);
             
                 if (resp) {
                     toast('User Answer recorded successfully!');

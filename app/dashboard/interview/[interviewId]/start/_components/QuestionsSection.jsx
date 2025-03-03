@@ -42,9 +42,9 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex, setActiv
 
         {/* Note Section */}
         <div className="border rounded-lg p-5 mt-20">
-          <h2 className="flex gap-2 items-center">
+          <h2 className="flex gap-2 items-center text-blue-500">
             <Lightbulb />
-            <strong>Note:</strong>
+            <strong>NOTE</strong>
           </h2>
           <h2 className="text-sm my-2">{process.env.NEXT_PUBLIC_QUESTION_NOTE}</h2>
         </div>

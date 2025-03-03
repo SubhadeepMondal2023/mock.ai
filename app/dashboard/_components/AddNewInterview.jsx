@@ -34,7 +34,6 @@ function AddNewInterview() {
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(jobPosition, jobDesc, jobExperience);
 
     const inputPrompt = `Job Position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}, give ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} in-depth technical interview questions and their solutions in 3-4 lines in JSON format`;
 
@@ -42,7 +41,6 @@ function AddNewInterview() {
       const result = await sendMessageToChat(inputPrompt);
 
       if (result) {
-        console.log("API Response:", JSON.parse(result)); 
         setJsonResponse(result);
 
         const resp = await db.insert(MockInterview)
@@ -56,11 +54,8 @@ function AddNewInterview() {
           createdAt: moment().format('DD-MM-YYYY')
         }).returning({mockId:MockInterview.mockId})
 
-        console.log("Inserted Id:", resp);
         setOpenDialog(false);
-        route.push('/dashboard/interview'+resp[0]?.mockId);
-
-
+        route.push(`/dashboard/interview/${resp[0]?.mockId}`);
       } else {
         console.error("API returned undefined or null.");
       }
