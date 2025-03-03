@@ -6,6 +6,7 @@ Welcome to **mock.ai**, your AI-powered mock interview platform! 💡 Get real-t
 
 Check out the live version of the project here: [https://mock-ai.onrender.com/dashboard](https://mock-ai.onrender.com/dashboard)
 
+![Dashboard](https://github.com/SubhadeepMondal2023/mock.ai/blob/main/public/dashboard.png)
 
 ## 📌 What is mock.ai?
 
@@ -51,7 +52,6 @@ Then open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) in 
 
 Go to **Dashboard** → Click **"+ Add New"** to start a new mock interview session.
 
-![Dashboard](https://github.com/SubhadeepMondal2023/mock.ai/blob/main/public/dashboard.png)
 
 ### **2. Enable Camera & Microphone**
 
