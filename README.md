@@ -4,7 +4,7 @@ Welcome to **mock.ai**, your AI-powered mock interview platform! 💡 Get real-t
 
 ## Live Demo
 
-Check out the live version of the project here: [https://mock-ai-red.vercel.app/dashboard]([https://mock-ai-red.vercel.app/dashboard)
+Check out the live version of the project here: [https://mock-ai-red.vercel.app/dashboard](https://mock-ai-red.vercel.app/dashboard)
 
 ![Dashboard](https://github.com/SubhadeepMondal2023/mock.ai/blob/main/public/dashboard.png)
 
