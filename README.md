@@ -4,8 +4,6 @@
 
 Welcome to **mock.ai**, your AI-powered mock interview platform! 💡 Get real-time AI-generated mock interviews to improve your confidence and performance. 🎯
 
-![Dashboard](./public/images/dashboard.png)
-
 </div>
 
 ## 🌐 Live Demo
